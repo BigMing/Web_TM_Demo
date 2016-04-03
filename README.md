@@ -13,3 +13,8 @@
 * [PTM_Sentence](http://naotu.baidu.com/file/e7c2745951a7e04fcc92559b72ed7c8f?token=140cbf8828194d46)
 * [WTM_Translation](http://naotu.baidu.com/file/6cdfc4ff994d8ed8c59fafb205cdf71d?token=797134f1255972f5)
 
+## 当前本地测试的中英语句资料
+* [下载链接](http://pan.baidu.com/s/1pKVxwSV)
+
+## WordNet2.1相关的安装和配置文件
+* [下载链接](http://pan.baidu.com/s/1eRQqcvg)
