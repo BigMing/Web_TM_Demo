@@ -38,12 +38,12 @@ public class PTM_SearchServiceTest {
 
     @Test
     public void search_Source_Sentence() throws Exception {
-/*        Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.Search_Source_Sentence(
+        Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.Search_Source_Sentence(
                 "Hello and welcome to our school.");
         for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
             System.out.println(entry.getKey().getSource_sentence() +
                     "  译文： " + entry.getKey().getTarget_sentence() +
                     " 相似分数： " + entry.getValue());
-        }*/
+        }
     }
 }
