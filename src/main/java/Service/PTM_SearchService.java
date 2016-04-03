@@ -17,7 +17,7 @@ import java.util.*;
 /**
  * Created by sunjm on 2016/3/31.
  */
-public class PTM_SearchService {
+class PTM_SearchService {
     public JsonService jsonService = new JsonService();
     public CalculateSimilarityService calculateSimilarityService = new CalculateSimilarityService();
 
@@ -25,7 +25,7 @@ public class PTM_SearchService {
     //public ClientService clientService;
     public Client client;
 
-    public PTM_SearchService(){
+    PTM_SearchService(){
         try {
             client = TransportClient.builder().build()
                     .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("localhost"),9300)
@@ -42,7 +42,7 @@ public class PTM_SearchService {
                 .setQuery(QueryBuilders.multiMatchQuery(searchString,"source_sentence"))
                 .setSize(5)
                 .addSort(SortBuilders.scoreSort())
-                .setMinScore((float) 0.6)
+                .setMinScore((float) 0.5)
                 .execute().actionGet();
         SearchHits hits = response.getHits();
         System.out.println("查询到的句子数：" + hits.getTotalHits());
@@ -81,7 +81,7 @@ public class PTM_SearchService {
         Map<PTM_Sentence,Float> tempMap = new HashMap<PTM_Sentence, Float>();
         for (PTM_Sentence ptm_sentence : sentenceMap.keySet()){
             float similarity = calculateSimilarityService.getSimanticSimilarity(
-                    searchString,ptm_sentence.getSource_lang()
+                    ptm_sentence.getSource_sentence(),searchString
             );
             tempMap.put(ptm_sentence,similarity);
         }
@@ -102,7 +102,7 @@ public class PTM_SearchService {
             }*/
         });
         Map<PTM_Sentence,Float> sortedSentenceMap = new HashMap<PTM_Sentence, Float>();
-        for (int i = 0;i < infoIds.size();i++){
+        for (int i = 0;i < 2 && i < infoIds.size();i++){
             //System.out.println(infoIds.get(i).getKey() + "\t" + infoIds.get(i).getValue());
             sortedSentenceMap.put(infoIds.get(i).getKey(),infoIds.get(i).getValue());
         }
