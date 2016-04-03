@@ -12,7 +12,7 @@
 * [WTM_Translation](http://naotu.baidu.com/file/6cdfc4ff994d8ed8c59fafb205cdf71d?token=797134f1255972f5)
 
 ## 当前本地测试的中英语句资料
-* [下载链接](http://pan.baidu.com/s/1pKVxwSV)
+* [index_file](http://pan.baidu.com/s/1pKVxwSV)
 
 ## WordNet2.1相关的安装和配置文件
-* [下载链接](http://pan.baidu.com/s/1eRQqcvg)
+* [WordNet2.1](http://pan.baidu.com/s/1eRQqcvg)
