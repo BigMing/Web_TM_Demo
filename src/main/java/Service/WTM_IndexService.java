@@ -14,6 +14,7 @@ import java.net.UnknownHostException;
 
 /**
  * Created by sunjm on 2016/3/30.
+ * 输入WTM的相关对象进行本地索引
  */
 public class WTM_IndexService {
     public JsonService jsonService = new JsonService();

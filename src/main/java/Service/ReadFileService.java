@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2015/5/29.
+ * 此类本地测试用，基于中英对应的txt文件进行读取处理
  */
 public class ReadFileService {
 

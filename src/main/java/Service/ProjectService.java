@@ -27,10 +27,10 @@ public class ProjectService {
         }
     }
 
+    //输入project对象，索引至本地
     public void Index_Project(Project project){
         IndexResponse response = client.prepareIndex("web_tm","project")
                 .setSource(jsonService.generateProject(project))
                 .get();
     }
-
 }

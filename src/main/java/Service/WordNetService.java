@@ -5,6 +5,8 @@ import edu.sussex.nlp.jws.Lin;
 
 /**
  * Created by Administrator on 2015/5/29.
+ * wordNet用于计算句子语义相似度
+ * 其功能很多，尚待开发
  */
 public class WordNetService {
     private String dir = "C:\\Program Files (x86)\\WordNet";

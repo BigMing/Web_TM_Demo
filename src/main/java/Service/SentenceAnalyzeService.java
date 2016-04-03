@@ -1,8 +1,5 @@
 package Service;
 
-/*import com.aliasi.spell.TfIdfDistance;
-import com.aliasi.tokenizer.IndoEuropeanTokenizerFactory;
-import com.aliasi.tokenizer.TokenizerFactory;*/
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.en.PorterStemFilter;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -16,22 +13,11 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2015/5/29.
+ * 此类主要对String类型的句子进行分析
  */
 public class SentenceAnalyzeService {
 
-/*    public List<String> PorterStemer(String text) throws IOException {
-        List<String> textList = new ArrayList<String>();
-        StringReader sr = new StringReader(text);
-        LowerCaseTokenizer lowerCaseTokenizer = new LowerCaseTokenizer(sr);
-        PorterStemFilter filter = new PorterStemFilter(lowerCaseTokenizer);
-        while (filter.incrementToken()){
-            CharTermAttribute charTermAttribute = filter.getAttribute(CharTermAttribute.class);
-            System.out.println(charTermAttribute.toString());
-            textList.add(charTermAttribute.toString());
-        }
-        return textList;
-    }*/
-
+    //用porter分词算法对句子进行分词等处理
     public List<String> PorterStemer(String text) throws IOException{
         List<String> textList = new ArrayList<String>();
         StandardAnalyzer standardAnalyzer = new StandardAnalyzer();
@@ -46,6 +32,7 @@ public class SentenceAnalyzeService {
         return textList;
     }
 
+    //分词等处理
     public List<String> StandardStermer(String text){
         List<String> newText = new ArrayList<String>();
         try {

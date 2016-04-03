@@ -19,6 +19,7 @@ public class PTM_IndexService {
     public JsonService jsonService  = new JsonService();
     //public ClientService clientService;
     public Client client;
+
     public ReadFileService readFileService = new ReadFileService();
 
     public PTM_IndexService(){
@@ -31,18 +32,21 @@ public class PTM_IndexService {
         }
     }
 
+    //输入ptm_article的对象进行本地索引
     public void Index_PTM_Article(PTM_Article ptm_article){
         IndexResponse response = client.prepareIndex("web_tm","ptm_article")
                 .setSource(jsonService.generatePTM_Article(ptm_article))
                 .get();
     }
 
+    //输入ptm_sentence的对象进行本地索引
     public void Index_PTM_Sentence(PTM_Sentence ptm_sentence){
         IndexResponse response = client.prepareIndex("web_tm","ptm_sentence")
                 .setSource(jsonService.generatePTM_Sentence(ptm_sentence))
                 .get();
     }
 
+    //本地测试用，输入对应的中英翻译，包装成部分属性缺省的ptm_sentence对象
     public List<PTM_Sentence> pack_PTM_Sentence(List<String> chinesePathList, List<String> englishPathList){
         List<PTM_Sentence> sentenceList = new ArrayList<PTM_Sentence>();
         for (int i = 0; i < chinesePathList.size() && i < englishPathList.size(); i++){

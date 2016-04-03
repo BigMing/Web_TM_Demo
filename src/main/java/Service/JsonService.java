@@ -8,6 +8,7 @@ import java.io.IOException;
 
 /**
  * Created by Administrator on 2016/1/10.
+ * 输入各个类的对象，转换成对应的JsonString输出
  */
 public class JsonService {
     public String generateProject(Project project){

@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2015/5/29.
+ * 提供了其他计算句子相似度的方法
  */
 public class CalculateSimilarityService {
 

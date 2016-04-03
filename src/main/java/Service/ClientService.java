@@ -9,6 +9,10 @@ import java.net.UnknownHostException;
 
 /**
  * Created by sunjm on 2016/3/29.
+ * client 管理的类
+ * 目前的配置是索引至本地单一的服务器
+ * 目前未使用此类，如需部署集群需要重新配置
+ * 目前写在下面几个服务类的构造函数里面，都是本地的索引
  */
 public class ClientService {
     Client client;

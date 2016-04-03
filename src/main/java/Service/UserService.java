@@ -30,12 +30,14 @@ public class UserService {
         }
     }
 
+    //输入user对象进行本地索引
     public void Index_User(User user){
         IndexResponse response = client.prepareIndex("web_tm","user")
                 .setSource(jsonService.generateUser(user))
                 .get();
     }
 
+    //输入user对象进行密码匹配等操作，登陆用，未完成此函数
     public User checkUser(User user){
         SearchResponse response = client.prepareSearch("web_tm").setTypes("user")
                 .setQuery(QueryBuilders.termQuery("user_name",user.getUser_name()))
@@ -49,5 +51,4 @@ public class UserService {
         }
         return null;
     }
-
 }

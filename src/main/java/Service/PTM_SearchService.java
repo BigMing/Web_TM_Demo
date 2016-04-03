@@ -21,7 +21,6 @@ class PTM_SearchService {
     public JsonService jsonService = new JsonService();
     public CalculateSimilarityService calculateSimilarityService = new CalculateSimilarityService();
 
-
     //public ClientService clientService;
     public Client client;
 
@@ -35,8 +34,8 @@ class PTM_SearchService {
         }
     }
 
+    //输入搜索String，搜索ptm_sentence库返回匹配的对象和其对应的相似分数的map
     public Map<PTM_Sentence,Float> Search_Source_Sentence(String searchString){
-        //List<PTM_Sentence> sentenceList = new ArrayList<PTM_Sentence>();
         Map<PTM_Sentence,Float> sentenceMap = new HashMap<PTM_Sentence, Float>();
         SearchResponse response = client.prepareSearch("web_tm").setTypes("ptm_sentence")
                 .setQuery(QueryBuilders.multiMatchQuery(searchString,"source_sentence"))
@@ -64,6 +63,7 @@ class PTM_SearchService {
         return sentenceMap;
     }
 
+    //输入输出同上函数，这里返回的相似分数是根据词序的分数
     public Map<PTM_Sentence,Float> wordOrderSearch(String searchString){
         Map<PTM_Sentence,Float> sentenceMap = Search_Source_Sentence(searchString);
         Map<PTM_Sentence,Float> tempMap = new HashMap<PTM_Sentence, Float>();
@@ -76,6 +76,7 @@ class PTM_SearchService {
         return sortSearchReasult(tempMap);
     }
 
+    //输入输出同上，返回的分数是根据语义得到的分数
     public Map<PTM_Sentence,Float> simanticSearch(String searchString){
         Map<PTM_Sentence,Float> sentenceMap = Search_Source_Sentence(searchString);
         Map<PTM_Sentence,Float> tempMap = new HashMap<PTM_Sentence, Float>();
@@ -88,6 +89,7 @@ class PTM_SearchService {
         return sortSearchReasult(tempMap);
     }
 
+    //对ptm_sentence和其得分的map进行排序并返回分数较高的2个
     public Map<PTM_Sentence,Float> sortSearchReasult(Map<PTM_Sentence,Float> sentenceMap){
         List<Map.Entry<PTM_Sentence,Float>> infoIds =
                 new ArrayList<Map.Entry<PTM_Sentence,Float>>(sentenceMap.entrySet());
