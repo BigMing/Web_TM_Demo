@@ -1,7 +1,5 @@
 # Web_TM_backgroud_Demo
 * 开发环境intellij idea + maven + elasticsearch2.3.0 + junit4
-* 尚未搭建web框架
-* 已标注各方法的输入输出
 
 ## 各类对应的结构
 * [WTM_Article](http://naotu.baidu.com/file/93ee00fd86fa137d48b6db082d3f5a1b?token=398ee74c2304cf73)
