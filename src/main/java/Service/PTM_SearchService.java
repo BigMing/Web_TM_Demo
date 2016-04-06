@@ -41,7 +41,7 @@ class PTM_SearchService {
                 .setQuery(QueryBuilders.multiMatchQuery(searchString,"source_sentence"))
                 .setSize(5)
                 .addSort(SortBuilders.scoreSort())
-                .setMinScore((float) 0.5)
+                .setMinScore((float) 0.7)
                 .execute().actionGet();
         SearchHits hits = response.getHits();
         System.out.println("查询到的句子数：" + hits.getTotalHits());
@@ -63,7 +63,7 @@ class PTM_SearchService {
         return sentenceMap;
     }
 
-    //输入输出同上函数，这里返回的相似分数是根据词序的分数
+    //输入输出同上函数，这里返回的相似分数是根据词序的分数，输入的number代表要提取的前number个结果
     public Map<PTM_Sentence,Float> wordOrderSearch(String searchString){
         Map<PTM_Sentence,Float> sentenceMap = Search_Source_Sentence(searchString);
         Map<PTM_Sentence,Float> tempMap = new HashMap<PTM_Sentence, Float>();
@@ -76,7 +76,7 @@ class PTM_SearchService {
         return sortSearchReasult(tempMap);
     }
 
-    //输入输出同上，返回的分数是根据语义得到的分数
+    //输入输出同上，返回的分数是根据语义得到的分数，输入的number代表要提取的前number个结果
     public Map<PTM_Sentence,Float> simanticSearch(String searchString){
         Map<PTM_Sentence,Float> sentenceMap = Search_Source_Sentence(searchString);
         Map<PTM_Sentence,Float> tempMap = new HashMap<PTM_Sentence, Float>();
@@ -89,7 +89,7 @@ class PTM_SearchService {
         return sortSearchReasult(tempMap);
     }
 
-    //对ptm_sentence和其得分的map进行排序并返回分数较高的2个
+    //对ptm_sentence和其得分的map进行排序并返回分数较高的几个
     public Map<PTM_Sentence,Float> sortSearchReasult(Map<PTM_Sentence,Float> sentenceMap){
         List<Map.Entry<PTM_Sentence,Float>> infoIds =
                 new ArrayList<Map.Entry<PTM_Sentence,Float>>(sentenceMap.entrySet());
@@ -104,7 +104,7 @@ class PTM_SearchService {
             }*/
         });
         Map<PTM_Sentence,Float> sortedSentenceMap = new HashMap<PTM_Sentence, Float>();
-        for (int i = 0;i < 2 && i < infoIds.size();i++){
+        for (int i = 0;i < 3 && i < infoIds.size();i++){
             //System.out.println(infoIds.get(i).getKey() + "\t" + infoIds.get(i).getValue());
             sortedSentenceMap.put(infoIds.get(i).getKey(),infoIds.get(i).getValue());
         }

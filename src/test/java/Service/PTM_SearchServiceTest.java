@@ -14,26 +14,28 @@ public class PTM_SearchServiceTest {
 
     @Test
     public void simanticSearch() throws Exception {
-/*        System.out.println("语义相似：");
+        System.out.println("语义：");
         Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.simanticSearch(
                 "Hello and welcome to our school.");
         for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
             System.out.println(entry.getKey().getSource_sentence() +
                     "  译文： " + entry.getKey().getTarget_sentence() +
-                    " 相似分数： " + entry.getValue());
-        }*/
+                    "  相似分数： " + entry.getValue()
+            );
+        }
     }
 
     @Test
     public void wordOrderSearch() throws Exception {
-/*        System.out.println("词序相似：");
+        System.out.println("词序：");
         Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.wordOrderSearch(
                 "Hello and welcome to our school.");
         for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
             System.out.println(entry.getKey().getSource_sentence() +
                     "  译文： " + entry.getKey().getTarget_sentence() +
-                    " 相似分数： " + entry.getValue());
-        }*/
+                    "  相似分数： " + entry.getValue()
+            );
+        }
     }
 
     @Test
@@ -43,7 +45,8 @@ public class PTM_SearchServiceTest {
         for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
             System.out.println(entry.getKey().getSource_sentence() +
                     "  译文： " + entry.getKey().getTarget_sentence() +
-                    " 相似分数： " + entry.getValue());
+                    "  相似分数： " + entry.getValue()
+            );
         }
     }
 }
