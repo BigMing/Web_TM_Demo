@@ -16,3 +16,4 @@
 
 ## WordNet2.1相关的安装和配置文件
 * [WordNet-2.1](http://pan.baidu.com/s/1eRQqcvg)
+* [jar包](http://pan.baidu.com/s/1slUnL1N)
