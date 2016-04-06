@@ -9,7 +9,6 @@ import java.util.Map;
  * Created by sunjm on 2016/4/1.
  */
 public class PTM_SearchServiceTest {
-
     PTM_SearchService ptm_searchService = new PTM_SearchService();
 
     @Test
