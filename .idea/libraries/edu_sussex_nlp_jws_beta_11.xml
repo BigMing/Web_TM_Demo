@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="edu.sussex.nlp.jws.beta.11">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/edu.sussex.nlp.jws.beta.11.jar!/" />
+      <root url="jar://C:/WordNet-2.1/edu.sussex.nlp.jws.beta.11.jar!/" />
+      <root url="jar://C:/WordNet-2.1/edu.mit.jwi_2.1.4.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src/main/java" />
+      <root url="file://$PROJECT_DIR$/src/test/java" />
+    </SOURCES>
   </library>
 </component>
