@@ -41,6 +41,7 @@ class PTM_SearchService {
                 .setQuery(QueryBuilders.multiMatchQuery(searchString,"source_sentence"))
                 .setSize(5)
                 .addSort(SortBuilders.scoreSort())
+                //.addHighlightedField("about")
                 .setMinScore((float) 0.7)
                 .execute().actionGet();
         SearchHits hits = response.getHits();
@@ -59,6 +60,37 @@ class PTM_SearchService {
             sentenceMap.put(new PTM_Sentence(sid,article_id,source_lang,target_lang,
                     source_sentence,target_sentence,translator,provenience,ranking,remark),
                     hit.getScore());
+        }
+        return sentenceMap;
+    }
+
+    //输入搜索String，搜索ptm_sentence库返回匹配的对象和其对应的高亮区域
+    public Map<PTM_Sentence,String> normalSearch(String searchString){
+        Map<PTM_Sentence,String> sentenceMap = new HashMap<PTM_Sentence, String>();
+        SearchResponse response = client.prepareSearch("web_tm").setTypes("ptm_sentence")
+                .setQuery(QueryBuilders.multiMatchQuery(searchString,"source_sentence"))
+                .setSize(5)
+                .addSort(SortBuilders.scoreSort())
+                .addHighlightedField("source_sentence")
+                .setMinScore((float) 0.7)
+                .execute().actionGet();
+        SearchHits hits = response.getHits();
+        System.out.println("查询到的句子数：" + hits.getTotalHits());
+        for (SearchHit hit : hits){
+            int sid = (Integer)hit.getSource().get("sid");
+            int article_id = (Integer)hit.getSource().get("article_id");
+            String source_lang = (String)hit.getSource().get("source_lang");
+            String target_lang = (String)hit.getSource().get("target_lang");
+            String source_sentence = (String)hit.getSource().get("source_sentence");
+            String target_sentence = (String)hit.getSource().get("target_sentence");
+            String translator = (String)hit.getSource().get("translator");
+            String provenience = (String)hit.getSource().get("provenience");
+            Double ranking = (Double)hit.getSource().get("ranking");
+            String remark = (String)hit.getSource().get("remark");
+            sentenceMap.put(new PTM_Sentence(sid,article_id,source_lang,target_lang,
+                            source_sentence,target_sentence,translator,provenience,ranking,remark),
+                    hit.getHighlightFields().get("source_sentence").toString());
+            //System.out.println(hit.getHighlightFields().get("source_sentence"));
         }
         return sentenceMap;
     }
