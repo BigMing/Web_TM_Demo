@@ -17,7 +17,7 @@ import java.util.*;
 /**
  * Created by sunjm on 2016/3/31.
  */
-class PTM_SearchService {
+public class PTM_SearchService {
     public JsonService jsonService = new JsonService();
     public CalculateSimilarityService calculateSimilarityService = new CalculateSimilarityService();
 
