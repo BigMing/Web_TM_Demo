@@ -121,6 +121,23 @@ public class PTM_SearchService {
         return sortSearchReasult(tempMap);
     }
 
+    //输入输出同上，返回加权的综合搜索分数
+    public Map<PTM_Sentence,Float> optimalSearch(String searchString){
+        Map<PTM_Sentence,Float> sentenceMap = Search_Source_Sentence(searchString);
+        Map<PTM_Sentence,Float> tempMap = new HashMap<PTM_Sentence, Float>();
+        for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
+            double similarity = entry.getValue() * 0.7 +
+                    calculateSimilarityService.getSimanticSimilarity(
+                            entry.getKey().getSource_sentence(),searchString
+                    ) * 0.3 +
+                    calculateSimilarityService.getWordOrderSimilarity(
+                            entry.getKey().getSource_sentence(),searchString
+                    ) * 0.1;
+            tempMap.put(entry.getKey(),(float)similarity);
+        }
+        return sortSearchReasult(tempMap);
+    }
+
     //对ptm_sentence和其得分的map进行排序并返回分数较高的几个
     public Map<PTM_Sentence,Float> sortSearchReasult(Map<PTM_Sentence,Float> sentenceMap){
         List<Map.Entry<PTM_Sentence,Float>> infoIds =
