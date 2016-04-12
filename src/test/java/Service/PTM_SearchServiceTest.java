@@ -13,64 +13,14 @@ public class PTM_SearchServiceTest {
 
     @Test
     public void optimalSearch() throws Exception {
-        System.out.println("最优：");
+        System.out.println("最优搜索：");
         Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.optimalSearch(
-                "Hello and welcome to our school.");
+                "Quit acting like you know what you're talking about Fitzgerald.");
         for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
             System.out.println(entry.getKey().getSource_sentence() +
                     "  译文： " + entry.getKey().getTarget_sentence() +
                     "  相似分数： " + entry.getValue()
             );
         }
-    }
-
-    @Test
-    public void normalSearch() throws Exception {
-/*        Map<PTM_Sentence,String> sentenceMap = ptm_searchService.normalSearch(
-                "Hello and welcome to our school.");
-        for (Map.Entry<PTM_Sentence,String> entry : sentenceMap.entrySet()){
-            System.out.println(entry.getKey().getSource_sentence() +
-                    "  译文： " + entry.getKey().getTarget_sentence() +
-                    "  高亮： " + entry.getValue()
-            );
-        }*/
-    }
-
-    @Test
-    public void simanticSearch() throws Exception {
-/*        System.out.println("语义：");
-        Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.simanticSearch(
-                "Hello and welcome to our school.");
-        for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
-            System.out.println(entry.getKey().getSource_sentence() +
-                    "  译文： " + entry.getKey().getTarget_sentence() +
-                    "  相似分数： " + entry.getValue()
-            );
-        }*/
-    }
-
-    @Test
-    public void wordOrderSearch() throws Exception {
-/*        System.out.println("词序：");
-        Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.wordOrderSearch(
-                "Hello and welcome to our school.");
-        for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
-            System.out.println(entry.getKey().getSource_sentence() +
-                    "  译文： " + entry.getKey().getTarget_sentence() +
-                    "  相似分数： " + entry.getValue()
-            );
-        }*/
-    }
-
-    @Test
-    public void search_Source_Sentence() throws Exception {
-/*        Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.Search_Source_Sentence(
-                "Hello and welcome to our school.");
-        for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
-            System.out.println(entry.getKey().getSource_sentence() +
-                    "  译文： " + entry.getKey().getTarget_sentence() +
-                    "  相似分数： " + entry.getValue()
-            );
-        }*/
     }
 }

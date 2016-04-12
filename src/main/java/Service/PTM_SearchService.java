@@ -153,7 +153,7 @@ public class PTM_SearchService {
             }*/
         });
         Map<PTM_Sentence,Float> sortedSentenceMap = new HashMap<PTM_Sentence, Float>();
-        for (int i = 0;i < 3 && i < infoIds.size();i++){
+        for (int i = 0;i < 5 && i < infoIds.size();i++){
             //System.out.println(infoIds.get(i).getKey() + "\t" + infoIds.get(i).getValue());
             sortedSentenceMap.put(infoIds.get(i).getKey(),infoIds.get(i).getValue());
         }
