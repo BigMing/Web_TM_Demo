@@ -15,7 +15,7 @@ public class PTM_SearchServiceTest {
     public void optimalSearch() throws Exception {
         System.out.println("最优搜索：");
         Map<PTM_Sentence,Float> sentenceMap = ptm_searchService.optimalSearch(
-                "Quit acting like you know what you're talking about Fitzgerald.");
+                "This is a tired afternoon.");
         for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
             System.out.println(entry.getKey().getSource_sentence() +
                     "  译文： " + entry.getKey().getTarget_sentence() +

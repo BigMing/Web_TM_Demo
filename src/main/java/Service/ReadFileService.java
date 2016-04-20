@@ -37,11 +37,12 @@ public class ReadFileService {
         List<String> tm_list = new ArrayList<String>();
         InputStreamReader isr;
         try{
-            isr = new InputStreamReader(new FileInputStream(filePath), "gbk");
+            isr = new InputStreamReader(new FileInputStream(filePath), "utf-8");
             BufferedReader br = new BufferedReader(isr);
             String tempstring = null;
 
             while((tempstring = br.readLine())!= null){
+                //System.out.println(tempstring);
                 tm_list.add(tempstring);
             }
             br.close();
@@ -73,19 +74,22 @@ public class ReadFileService {
         }
         return englishPath;
     }
-  /*  public List<String> getEnglishList(List<String> text){
+
+    public List<String> getEnglishList(List<String> text){
         List<String> englishList = new ArrayList<String>();
-        for (int i = 1;i < text.size();i += 2){
+        for (int i = 2;i < text.size();i += 3){
             englishList.add(text.get(i));
+            //System.out.println(text.get(i));
         }
         return englishList;
     }
 
     public List<String> getChineseList(List<String> text){
         List<String> chineseList = new ArrayList<String>();
-        for (int i = 0;i < text.size();i += 2){
+        for (int i = 1;i < text.size();i += 3){
             chineseList.add(text.get(i));
+            //System.out.println(text.get(i));
         }
         return chineseList;
-    }*/
+    }
 }

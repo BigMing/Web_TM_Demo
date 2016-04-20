@@ -2,11 +2,24 @@ package Service;
 
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * Created by sunjm on 2016/4/1.
  */
 public class ReadFileServiceTest {
     ReadFileService readFileService = new ReadFileService();
+    @Test
+    public void getEnglishList() throws Exception {
+/*        List<String> stringList = readFileService.readFile("C:\\index_file_1\\corpus_0.05.txt");
+        List<String> englishList = readFileService.getEnglishList(stringList);*/
+    }
+
+    @Test
+    public void getChineseList() throws Exception {
+        List<String> stringList = readFileService.readFile("C:\\index_file_1\\corpus_0.05.txt");
+        List<String> chineseList = readFileService.getChineseList(stringList);
+    }
 
     @Test
     public void getChinesePath() throws Exception {
@@ -29,8 +42,8 @@ public class ReadFileServiceTest {
 
     @Test
     public void readFile() throws Exception {
-        System.out.print(readFileService.readFile(
-                "C:\\index_file\\Cold.Case.S02E01.720p.HDTV.DD2.0.x264-DcX.chs&eng.繁体&英文.srt英.txt"
-        ));
+/*        System.out.print(readFileService.readFile(
+                "C:\\index_file_1\\corpus_0.05.txt"
+        ));*/
     }
 }

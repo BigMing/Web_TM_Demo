@@ -41,8 +41,7 @@ public class PTM_SearchService {
                 .setQuery(QueryBuilders.multiMatchQuery(searchString,"source_sentence"))
                 .setSize(5)
                 .addSort(SortBuilders.scoreSort())
-                //.addHighlightedField("about")
-                .setMinScore((float) 0.7)
+                .setMinScore((float) 1)
                 .execute().actionGet();
         SearchHits hits = response.getHits();
         System.out.println("查询到的句子数：" + hits.getTotalHits());
@@ -72,7 +71,7 @@ public class PTM_SearchService {
                 .setSize(5)
                 .addSort(SortBuilders.scoreSort())
                 .addHighlightedField("source_sentence")
-                .setMinScore((float) 0.7)
+                .setMinScore((float) 1)
                 .execute().actionGet();
         SearchHits hits = response.getHits();
         System.out.println("查询到的句子数：" + hits.getTotalHits());
@@ -126,10 +125,11 @@ public class PTM_SearchService {
         Map<PTM_Sentence,Float> sentenceMap = Search_Source_Sentence(searchString);
         Map<PTM_Sentence,Float> tempMap = new HashMap<PTM_Sentence, Float>();
         for (Map.Entry<PTM_Sentence,Float> entry : sentenceMap.entrySet()){
+            //System.out.println(entry.getValue());
             double similarity = entry.getValue() * 0.7 +
                     calculateSimilarityService.getSimanticSimilarity(
                             entry.getKey().getSource_sentence(),searchString
-                    ) * 0.3 +
+                    ) * 0.2 +
                     calculateSimilarityService.getWordOrderSimilarity(
                             entry.getKey().getSource_sentence(),searchString
                     ) * 0.1;
@@ -153,7 +153,7 @@ public class PTM_SearchService {
             }*/
         });
         Map<PTM_Sentence,Float> sortedSentenceMap = new HashMap<PTM_Sentence, Float>();
-        for (int i = 0;i < 5 && i < infoIds.size();i++){
+        for (int i = 0;i < 3 && i < infoIds.size();i++){
             //System.out.println(infoIds.get(i).getKey() + "\t" + infoIds.get(i).getValue());
             sortedSentenceMap.put(infoIds.get(i).getKey(),infoIds.get(i).getValue());
         }

@@ -73,4 +73,19 @@ public class PTM_IndexService {
             Index_PTM_Sentence(ptm_sentence);
         }
     }
+
+    public void index(String fileName){
+        List<String> stringList = readFileService.readFile(fileName);
+        List<PTM_Sentence> sentenceList = new ArrayList<PTM_Sentence>();
+        List<String> englishList = readFileService.getEnglishList(stringList);
+        List<String> chineseList = readFileService.getChineseList(stringList);
+        for (int i = 0; i < englishList.size() && i < chineseList.size(); i++){
+            sentenceList.add(
+                    new PTM_Sentence(englishList.get(i),chineseList.get(i))
+            );
+        }
+        for (PTM_Sentence ptm_sentence : sentenceList){
+            Index_PTM_Sentence(ptm_sentence);
+        }
+    }
 }

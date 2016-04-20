@@ -30,6 +30,7 @@ public class PTM_IndexServiceTest {
 
     @Test
     public void indexSentence() throws Exception {
-        ptm_indexService.indexSentence("C:\\index_file");
+        //ptm_indexService.indexSentence("C:\\index_file");
+        ptm_indexService.index("C:\\index_file_1\\corpus_0.05.txt");
     }
 }
