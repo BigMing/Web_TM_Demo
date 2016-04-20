@@ -13,6 +13,7 @@
 
 ## 当前本地测试的中英语句资料
 * [index_file](http://pan.baidu.com/s/1pKVxwSV)
+* [index_file_1]()
 
 ## WordNet2.1相关的安装和配置文件
 * [WordNet-2.1](http://pan.baidu.com/s/1eRQqcvg)
