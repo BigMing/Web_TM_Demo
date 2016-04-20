@@ -1,5 +1,8 @@
 # Web_TM_Demo
 * 开发环境intellij idea + maven + elasticsearch2.3.0 + junit4
+* 此项目均为ElasticSearch后台代码，后续开发者可按此样式使用
+* 目前索引了以下列出的测试文件，共计50多万条语料，索引速度较慢，后续我将索引好的ElasticSearch包上传
+* [ElasticSearch2.3.0]()
 
 ## 各类对应的结构
 * [WTM_Article](http://naotu.baidu.com/file/93ee00fd86fa137d48b6db082d3f5a1b?token=398ee74c2304cf73)
@@ -13,7 +16,7 @@
 
 ## 当前本地测试的中英语句资料
 * [index_file](http://pan.baidu.com/s/1pKVxwSV)
-* [index_file_1]()
+* [index_file_1](http://pan.baidu.com/s/1skBbugt)
 
 ## WordNet2.1相关的安装和配置文件
 * [WordNet-2.1](http://pan.baidu.com/s/1eRQqcvg)
