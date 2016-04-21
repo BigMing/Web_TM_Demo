@@ -1,8 +1,8 @@
 # Web_TM_Demo
 * 开发环境intellij idea + maven + elasticsearch2.3.0 + junit4
 * 此项目均为ElasticSearch后台代码，后续开发者可按此样式使用
-* 目前索引了以下列出的测试文件，共计50多万条语料，索引速度较慢，后续我将索引好的ElasticSearch包上传
-* [ElasticSearch2.3.0]()
+* 目前索引了以下列出的测试文件，共计50多万条语料，索引速度较慢，以下是我索引号的ElasticSearch包
+* [ElasticSearch2.3.0](http://pan.baidu.com/s/1c8yx2I)
 
 ## 各类对应的结构
 * [WTM_Article](http://naotu.baidu.com/file/93ee00fd86fa137d48b6db082d3f5a1b?token=398ee74c2304cf73)
